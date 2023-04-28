@@ -8,18 +8,48 @@ export class News extends Component {
     console.log("Im super in news comp.");
 
     this.state = {
-      articles : []
+      articles : [],
+      page : 1
     }
 
   }
 
   async componentDidMount(){
 
-    let response = await fetch("https://newsapi.org/v2/top-headlines?country=in&apiKey=23a9ff7dca9a4c879fc6ff9b22196288");
+    let response = await fetch("https://newsapi.org/v2/top-headlines?country=in&apiKey=23a9ff7dca9a4c879fc6ff9b22196288&page=1&pageSize=20");
 
     let parsedData = await response.json();
   
     this.setState({articles:parsedData.articles});
+  }
+
+  handleNavigation = async (e) =>{
+    console.log("e.target.name --> ",e.target.name);
+    if(e.target.name === "next"){
+
+      this.setState({
+        page : this.state.page + 1
+      })
+
+      let response = await fetch( `https://newsapi.org/v2/top-headlines?country=in&apiKey=23a9ff7dca9a4c879fc6ff9b22196288&page=${this.state.page}&pageSize=20`);
+
+      let parsedData = await response.json();
+    
+      this.setState({articles:parsedData.articles});
+    }
+    else if(e.target.name === "previous"){
+
+      this.setState({
+        page : this.state.page - 1
+      })
+
+      let response = await fetch( `https://newsapi.org/v2/top-headlines?country=in&apiKey=23a9ff7dca9a4c879fc6ff9b22196288&page=${this.state.page}&pageSize=20`);
+
+      let parsedData = await response.json();
+    
+      this.setState({articles:parsedData.articles});
+    }
+
   }
 
   render() {
@@ -35,9 +65,9 @@ export class News extends Component {
           })}
         </div>
           <hr/>
-        <div class="container d-flex justify-content-evenly mx-3">
-          <button type="button" class="btn btn-dark">&larr; Prevous</button>
-          <button type="button" class="btn btn-dark">Next &rarr;</button>
+        <div className="container d-flex justify-content-evenly mx-3">
+          <button  name="previous" type="button" className="btn btn-dark" onClick={this.handleNavigation}>&larr; Previous</button>
+          <button  name="next" type="button" className="btn btn-dark" onClick={this.handleNavigation}>Next &rarr;</button>
         </div>
 
 
