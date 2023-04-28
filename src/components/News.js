@@ -5,7 +5,7 @@ export class News extends Component {
 
   constructor(){
     super();
-    console.log("Im super in news comp");
+    console.log("Im super in news comp.");
 
     this.state = {
       articles : []
