@@ -34,6 +34,12 @@ export class News extends Component {
           </div>
           })}
         </div>
+          <hr/>
+        <div class="container d-flex justify-content-evenly mx-3">
+          <button type="button" class="btn btn-dark">&larr; Prevous</button>
+          <button type="button" class="btn btn-dark">Next &rarr;</button>
+        </div>
+
 
       </div>
     )

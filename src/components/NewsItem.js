@@ -14,11 +14,11 @@ export class NewsItem extends Component {
             objectFit: "cover"
           }} />
           <div className="card-body">
-            {/* <h5 className="card-title">{title?title.slice(0,50):""}...</h5> */}
-            <h5 className="card-title">{title ? title : ""}...</h5>
-            {/* <p className="card-text">{desc?desc.slice(0,100):""}...</p> */}
-            <p className="card-text">{desc ? desc : ""}...</p>
-            <a href={newsUrl} target="_blank" className="btn btn-primary">Read more</a>
+            <h5 className="card-title">{title?title.slice(0,50):""}...</h5>
+            {/* <h5 className="card-title">{title ? title : ""}...</h5> */}
+            <p className="card-text">{desc?desc.slice(0,100):""}...</p>
+            {/* <p className="card-text">{desc ? desc : ""}...</p> */}
+            <a rel="noreferrer"  href={newsUrl} target="_blank" className="btn btn-primary">Read more</a>
           </div>
         </div>
       </div>
