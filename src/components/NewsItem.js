@@ -7,7 +7,7 @@ export class NewsItem extends Component {
 
     return (
       <div>
-        <div className="card my-2 mx-2 text-center" style={{ width: "18rem" }}>
+        <div className="card my-2 mx-2 text-center">
           <img src={imgUrl ? imgUrl : "https://i.pinimg.com/originals/4e/a9/81/4ea98108e0dd10a1dc417a24e32232e2.png"} className="card-img-top" alt="..." style={{
             width: "286px",
             height: "175px",
